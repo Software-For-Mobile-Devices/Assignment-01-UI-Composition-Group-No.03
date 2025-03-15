@@ -106,6 +106,49 @@ class GmailHome extends StatelessWidget {
           ),
         ),
       ),
+      body: ListView.builder(  // Here is where you should place your ListView.builder
+        itemCount: emails.length,
+        itemBuilder: (context, index) {
+          final email = emails[index];
+          return ListTile(
+            leading: email["isPromotion"] == true
+                ? Icon(Icons.local_offer, color: Colors.green)
+                : CircleAvatar(
+                    backgroundColor: email["color"],
+                    child: Text(
+                      email["avatar"],
+                      style: TextStyle(color: Colors.white, fontWeight: FontWeight.bold),
+                    ),
+                  ),
+            title: Text(email["sender"], style: TextStyle(fontWeight: FontWeight.bold)),
+            subtitle: email["isPromotion"] == true
+                ? null
+                : Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: [
+                      Text(email["subject"], style: TextStyle(color: Colors.black87)),
+                      Text(email["body"], style: TextStyle(color: Colors.black54)),
+                    ],
+                  ),
+            trailing: email["isPromotion"] == true
+                ? Container(
+                    padding: EdgeInsets.symmetric(horizontal: 8, vertical: 4),
+                    decoration: BoxDecoration(
+                      color: Colors.green,
+                      borderRadius: BorderRadius.circular(8),
+                    ),
+                    child: Text("36 new", style: TextStyle(color: Colors.white)),
+                  )
+                : Column(
+                    children: [
+                      Text(email["date"], style: TextStyle(color: Colors.black54)),
+                      Icon(email["isStarred"] ? Icons.star : Icons.star_border, color: Colors.grey),
+                    ],
+                  ),
+            contentPadding: EdgeInsets.symmetric(horizontal: 15, vertical: 8),
+          );
+        },
+      ),
     );
   }
 }
