@@ -17,7 +17,7 @@ class MyApp extends StatelessWidget {
         title: 'Namer App',
         theme: ThemeData(
           useMaterial3: true,
-          colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepOrange),
+          colorScheme: ColorScheme.fromSeed(seedColor: const Color.fromARGB(255, 208, 106, 188)),
         ),
         home: MyHomePage(),
       ),
@@ -27,18 +27,24 @@ class MyApp extends StatelessWidget {
 
 class MyAppState extends ChangeNotifier {
   var current = WordPair.random();
+  void getNext() {
+    current = WordPair.random();
+    notifyListeners();
+  }
+
 }
 
 class MyHomePage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     var appState = context.watch<MyAppState>();
+      var pair = appState.current;  
 
     return Scaffold(
       body: Column(
         children: [
           Text('A random AWESOME idea:'),
-          Text(appState.current.asLowerCase),
+          Text(pair.asLowerCase),  
           ElevatedButton(
             onPressed: () {
               print('button pressed!');
