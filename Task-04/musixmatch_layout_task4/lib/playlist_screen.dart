@@ -1,3 +1,5 @@
+// Commit 6: Added Bottom Navigation Bar for app navigation.
+
 import 'package:flutter/material.dart';
 
 class PlaylistScreen extends StatelessWidget {
@@ -88,8 +90,8 @@ class PlaylistScreen extends StatelessWidget {
                   children: const [
                     Text(
                       'Playlist Name',
-                      style:
-                          TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
+                      style: TextStyle(
+                          fontSize: 18, fontWeight: FontWeight.bold),
                     ),
                     Text('10 songs'),
                   ],
@@ -120,6 +122,23 @@ class PlaylistScreen extends StatelessWidget {
         ),
       ),
       bottomNavigationBar: _miniMusicPlayer(),
+      bottomNavigationBar: BottomNavigationBar(
+        currentIndex: 0,
+        items: const [
+          BottomNavigationBarItem(
+            icon: Icon(Icons.home),
+            label: 'Home',
+          ),
+          BottomNavigationBarItem(
+            icon: Icon(Icons.search),
+            label: 'Search',
+          ),
+          BottomNavigationBarItem(
+            icon: Icon(Icons.library_music),
+            label: 'Library',
+          ),
+        ],
+      ),
     );
   }
 }
