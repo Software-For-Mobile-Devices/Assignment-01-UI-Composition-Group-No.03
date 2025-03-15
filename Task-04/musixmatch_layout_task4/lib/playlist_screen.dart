@@ -21,8 +21,38 @@ class PlaylistScreen extends StatelessWidget {
           ),
         ],
       ),
-      body: const Center(
-        child: Text('Playlist Screen Content'),
+      body: Padding(
+        padding: const EdgeInsets.all(16.0),
+        child: Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: [
+            Row(
+              children: [
+                ClipRRect(
+                  borderRadius: BorderRadius.circular(8),
+                  child: Image.asset(
+                    'assets/playlist_image.jpg',
+                    width: 60,
+                    height: 60,
+                    fit: BoxFit.cover,
+                  ),
+                ),
+                const SizedBox(width: 12),
+                Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: const [
+                    Text(
+                      'Playlist Name',
+                      style: TextStyle(
+                          fontSize: 18, fontWeight: FontWeight.bold),
+                    ),
+                    Text('10 songs'),
+                  ],
+                ),
+              ],
+            ),
+          ],
+        ),
       ),
     );
   }
