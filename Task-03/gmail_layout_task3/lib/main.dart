@@ -206,6 +206,19 @@ class GmailHome extends StatelessWidget {
           ],
         ),
       ),
+      floatingActionButton: FloatingActionButton.extended(
+        onPressed: () {},
+        label: Text(
+          "Compose",
+          style: TextStyle(color: Colors.red),
+        ),
+        icon: Icon(
+          Icons.edit,
+          color: Colors.red,
+        ),
+        backgroundColor: Colors.white,
+      ),
+      floatingActionButtonLocation: FloatingActionButtonLocation.endFloat,
     );
   }
 }
