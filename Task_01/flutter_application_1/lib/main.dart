@@ -44,7 +44,7 @@ class MyHomePage extends StatelessWidget {
       body: Column(
         children: [
           Text('A random AWESOME idea:'),
-          Text(pair.asLowerCase),
+          BigCard(pair: pair),
           ElevatedButton(
             onPressed: () {
               print('button pressed!');
