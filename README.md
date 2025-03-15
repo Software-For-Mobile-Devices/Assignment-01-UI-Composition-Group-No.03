@@ -1,2 +1,2 @@
-Question1 ![App Preview](assets/my_image.png)
+![App Preview](assets/my_image.png)
 
