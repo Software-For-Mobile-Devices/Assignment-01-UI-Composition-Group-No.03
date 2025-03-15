@@ -1,7 +1,16 @@
+// Commit 4: Added a ListView to display a list of songs in the playlist.
+
 import 'package:flutter/material.dart';
 
 class PlaylistScreen extends StatelessWidget {
   const PlaylistScreen({Key? key}) : super(key: key);
+
+  final List<Map<String, String>> songs = [
+    {'title': 'Song 1', 'artist': 'Artist 1'},
+    {'title': 'Song 2', 'artist': 'Artist 2'},
+    {'title': 'Song 3', 'artist': 'Artist 3'},
+    // Add more songs here
+  ];
 
   @override
   Widget build(BuildContext context) {
@@ -43,8 +52,8 @@ class PlaylistScreen extends StatelessWidget {
                   children: const [
                     Text(
                       'Playlist Name',
-                      style:
-                          TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
+                      style: TextStyle(
+                          fontSize: 18, fontWeight: FontWeight.bold),
                     ),
                     Text('10 songs'),
                   ],
@@ -56,6 +65,20 @@ class PlaylistScreen extends StatelessWidget {
               onPressed: () {},
               icon: const Icon(Icons.shuffle),
               label: const Text('Shuffle Play'),
+            ),
+            const SizedBox(height: 20),
+            Expanded(
+              child: ListView.builder(
+                itemCount: songs.length,
+                itemBuilder: (context, index) {
+                  return ListTile(
+                    leading: const Icon(Icons.drag_handle),
+                    title: Text(songs[index]['title']!),
+                    subtitle: Text(songs[index]['artist']!),
+                    trailing: const Icon(Icons.more_vert),
+                  );
+                },
+              ),
             ),
           ],
         ),
