@@ -1,5 +1,3 @@
-// Commit 4: Added a ListView to display a list of songs in the playlist.
-
 import 'package:flutter/material.dart';
 
 class PlaylistScreen extends StatelessWidget {
@@ -9,8 +7,46 @@ class PlaylistScreen extends StatelessWidget {
     {'title': 'Song 1', 'artist': 'Artist 1'},
     {'title': 'Song 2', 'artist': 'Artist 2'},
     {'title': 'Song 3', 'artist': 'Artist 3'},
-    // Add more songs here
   ];
+
+  Widget _miniMusicPlayer() {
+    return Container(
+      padding: const EdgeInsets.all(10),
+      color: Colors.grey[850],
+      child: Row(
+        children: [
+          ClipRRect(
+            borderRadius: BorderRadius.circular(8),
+            child: Image.asset(
+              'assets/song_image.jpg',
+              width: 50,
+              height: 50,
+              fit: BoxFit.cover,
+            ),
+          ),
+          const SizedBox(width: 12),
+          Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: const [
+              Text(
+                'Song Title',
+                style: TextStyle(color: Colors.white, fontSize: 16),
+              ),
+              Text(
+                'Artist Name',
+                style: TextStyle(color: Colors.white70, fontSize: 12),
+              ),
+            ],
+          ),
+          const Spacer(),
+          IconButton(
+            icon: const Icon(Icons.play_arrow, color: Colors.white),
+            onPressed: () {},
+          ),
+        ],
+      ),
+    );
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -52,8 +88,8 @@ class PlaylistScreen extends StatelessWidget {
                   children: const [
                     Text(
                       'Playlist Name',
-                      style: TextStyle(
-                          fontSize: 18, fontWeight: FontWeight.bold),
+                      style:
+                          TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
                     ),
                     Text('10 songs'),
                   ],
@@ -83,6 +119,7 @@ class PlaylistScreen extends StatelessWidget {
           ],
         ),
       ),
+      bottomNavigationBar: _miniMusicPlayer(),
     );
   }
 }
