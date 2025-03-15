@@ -43,13 +43,19 @@ class PlaylistScreen extends StatelessWidget {
                   children: const [
                     Text(
                       'Playlist Name',
-                      style: TextStyle(
-                          fontSize: 18, fontWeight: FontWeight.bold),
+                      style:
+                          TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
                     ),
                     Text('10 songs'),
                   ],
                 ),
               ],
+            ),
+            const SizedBox(height: 20),
+            ElevatedButton.icon(
+              onPressed: () {},
+              icon: const Icon(Icons.shuffle),
+              label: const Text('Shuffle Play'),
             ),
           ],
         ),
