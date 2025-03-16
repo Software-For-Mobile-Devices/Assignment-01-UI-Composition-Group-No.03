@@ -1,6 +1,4 @@
-Task 01:
 
-![App Preview](assets/my_image.png)
 
 Task 02:
 
