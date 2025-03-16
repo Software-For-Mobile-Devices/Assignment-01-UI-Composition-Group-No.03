@@ -75,6 +75,9 @@ class ButtonSection extends StatelessWidget {
           ButtonWithText(color: color, icon: Icons.call, label: 'CALL'),
           ButtonWithText(color: color, icon: Icons.near_me, label: 'ROUTE'),
           ButtonWithText(color: color, icon: Icons.share, label: 'SHARE'),
+            ImageSection(
+    image: 'images/lake.jpg',
+  ),
             TitleSection(
     name: 'Oeschinen Lake Campground',
     location: 'Kandersteg, Switzerland',
@@ -140,5 +143,15 @@ class ButtonWithText extends StatelessWidget {
         ),
       ],
     );
+  }
+}
+class ImageSection extends StatelessWidget {
+  const ImageSection({super.key, required this.image});
+
+  final String image;
+
+  @override
+  Widget build(BuildContext context) {
+    return Image.asset(image, width: 600, height: 240, fit: BoxFit.cover);
   }
 }
