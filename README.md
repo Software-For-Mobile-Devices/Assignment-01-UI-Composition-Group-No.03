@@ -12,7 +12,8 @@ Task 02:
 
 Task 03:
 
-![Gmail](https://github.com/user-attachments/assets/059a2e27-2b68-40c4-b740-1d6350a702a1)
+![Gmail](https://github.com/user-attachments/assets/31cfeee6-76e2-4a71-9298-6c62a17584ec)
+
 
 Task 04:
 
