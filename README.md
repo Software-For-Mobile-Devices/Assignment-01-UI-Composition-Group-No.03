@@ -5,6 +5,7 @@ Task 01:
 ![Screenshot_3_part_1](https://github.com/user-attachments/assets/a78379b3-4ac8-442f-8777-38a83077a32e)
 
 Task 02:
+
 ![Capture](https://github.com/user-attachments/assets/1dba162f-315d-45f4-90b4-f167f1cc4648)
 
 
