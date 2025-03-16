@@ -106,6 +106,119 @@ class GmailHome extends StatelessWidget {
           ),
         ),
       ),
+      body: ListView.builder(
+        // Here is where you should place your ListView.builder
+        itemCount: emails.length,
+        itemBuilder: (context, index) {
+          final email = emails[index];
+          return ListTile(
+            leading: email["isPromotion"] == true
+                ? Icon(Icons.local_offer, color: Colors.green)
+                : CircleAvatar(
+                    backgroundColor: email["color"],
+                    child: Text(
+                      email["avatar"],
+                      style: TextStyle(
+                          color: Colors.white, fontWeight: FontWeight.bold),
+                    ),
+                  ),
+            title: Text(email["sender"],
+                style: TextStyle(fontWeight: FontWeight.bold)),
+            subtitle: email["isPromotion"] == true
+                ? null
+                : Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: [
+                      Text(email["subject"],
+                          style: TextStyle(color: Colors.black87)),
+                      Text(email["body"],
+                          style: TextStyle(color: Colors.black54)),
+                    ],
+                  ),
+            trailing: email["isPromotion"] == true
+                ? Container(
+                    padding: EdgeInsets.symmetric(horizontal: 8, vertical: 4),
+                    decoration: BoxDecoration(
+                      color: Colors.green,
+                      borderRadius: BorderRadius.circular(8),
+                    ),
+                    child:
+                        Text("36 new", style: TextStyle(color: Colors.white)),
+                  )
+                : Column(
+                    children: [
+                      Text(email["date"],
+                          style: TextStyle(color: Colors.black54)),
+                      Icon(email["isStarred"] ? Icons.star : Icons.star_border,
+                          color: Colors.grey),
+                    ],
+                  ),
+            contentPadding: EdgeInsets.symmetric(horizontal: 15, vertical: 8),
+          );
+        },
+      ),
+      bottomNavigationBar: BottomAppBar(
+        child: Row(
+          mainAxisAlignment: MainAxisAlignment.spaceAround,
+          children: [
+            Column(
+              mainAxisSize: MainAxisSize.min,
+              children: [
+                Stack(
+                  children: [
+                    Icon(Icons.mail, color: Colors.red),
+                    Positioned(
+                      right: 0,
+                      top: 0,
+                      child: Container(
+                        padding: EdgeInsets.all(2),
+                        decoration: BoxDecoration(
+                          color: Colors.red,
+                          borderRadius: BorderRadius.circular(12),
+                        ),
+                        constraints: BoxConstraints(
+                          minWidth: 10,
+                          minHeight: 10,
+                        ),
+                        child: Text(
+                          '99+',
+                          style: TextStyle(
+                            color: Colors.white,
+                            fontSize: 6,
+                            fontWeight: FontWeight.bold,
+                          ),
+                          textAlign: TextAlign.center,
+                        ),
+                      ),
+                    ),
+                  ],
+                ),
+                Text("Mail", style: TextStyle(color: Colors.red)),
+              ],
+            ),
+            Column(
+              mainAxisSize: MainAxisSize.min,
+              children: [
+                Icon(Icons.videocam, color: Colors.black54),
+                Text("Meet", style: TextStyle(color: Colors.black54)),
+              ],
+            ),
+          ],
+        ),
+      ),
+      floatingActionButton: FloatingActionButton.extended(
+        onPressed: () {},
+        label: Text(
+          "Compose",
+          style: TextStyle(color: Colors.red),
+        ),
+        icon: Icon(
+          Icons.edit,
+          color: Colors.red,
+        ),
+        backgroundColor: Colors.white,
+      ),
+      floatingActionButtonLocation: FloatingActionButtonLocation.endFloat,
     );
   }
 }
