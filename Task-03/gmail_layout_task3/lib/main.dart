@@ -18,7 +18,7 @@ class GmailHome extends StatelessWidget {
   final List<Map<String, dynamic>> emails = [
     {
       "avatar": "G",
-      "color": Colors.orange,
+      "color": Color.fromARGB(255, 255, 168, 39),
       "sender": "Google Maps Timeline",
       "subject": "Metallic, your January update",
       "body": "This Timeline email is an automated sum...",
@@ -27,7 +27,7 @@ class GmailHome extends StatelessWidget {
     },
     {
       "avatar": "I",
-      "color": Colors.blue,
+      "color": Color.fromARGB(158, 158, 168, 219),
       "sender": "itch.io",
       "subject": "securas released a new game: GPS Sim...",
       "body": "Hey Metallic Fist Digital Limited, someon...",
@@ -39,14 +39,14 @@ class GmailHome extends StatelessWidget {
       "color": Colors.green,
       "sender": "Promotions",
       "subject": "itch.io, Google Account",
-      "body": "",
+      "body": " ",
       "date": "36 new",
       "isStarred": false,
       "isPromotion": true,
     },
     {
       "avatar": "G",
-      "color": Colors.green,
+      "color": Color.fromARGB(163, 66, 202, 134),
       "sender": "Google Play | Apps & Games",
       "subject": "Metallic Fist | best apps from 2020, spot...",
       "body": "What's new on Android and Google Play...",
@@ -55,11 +55,29 @@ class GmailHome extends StatelessWidget {
     },
     {
       "avatar": "A",
-      "color": Colors.purple,
+      "color": Color.fromARGB(121, 121, 134, 204),
       "sender": "Amazon Web Services",
       "subject": "Last 2 days | Register now for AWS Build...",
       "body": "21 January 2021 | Last chance to register...",
       "date": "19 Jan",
+      "isStarred": false,
+    },
+    {
+      "avatar": "A",
+      "color": Color.fromARGB(121, 121, 134, 204),
+      "sender": "Amazon Web Services",
+      "subject": "Last 2 days | Register now for AWS Build...",
+      "body": "21 January 2021 | Last chance to register...",
+      "date": "19 Jan",
+      "isStarred": false,
+    },
+    {
+      "avatar": "G",
+      "color": Color.fromARGB(224, 224, 96, 85),
+      "sender": "Google Account",
+      "subject": "Metallic, your privacy Cl ",
+      "body": "Sign in See your personal privacy sug...",
+      "date": "14 Jan",
       "isStarred": false,
     },
   ];
@@ -97,7 +115,7 @@ class GmailHome extends StatelessWidget {
                 ),
                 CircleAvatar(
                   backgroundImage: NetworkImage(
-                      'https://via.placeholder.com/50'), // Replace with actual profile image
+                      'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR5BbIszYnpmASsvAHwU88dYUF6pyCFIxI-_Q&s'),
                   radius: 16,
                 ),
                 SizedBox(width: 10),
@@ -113,7 +131,7 @@ class GmailHome extends StatelessWidget {
           final email = emails[index];
           return ListTile(
             leading: email["isPromotion"] == true
-                ? Icon(Icons.local_offer, color: Colors.green)
+                ? Icon(Icons.local_offer_outlined, color: Colors.green)
                 : CircleAvatar(
                     backgroundColor: email["color"],
                     child: Text(
@@ -125,7 +143,13 @@ class GmailHome extends StatelessWidget {
             title: Text(email["sender"],
                 style: TextStyle(fontWeight: FontWeight.bold)),
             subtitle: email["isPromotion"] == true
-                ? null
+                ? Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: [
+                      Text(email["subject"],
+                          style: TextStyle(color: Colors.black87)),
+                    ],
+                  )
                 : Column(
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
