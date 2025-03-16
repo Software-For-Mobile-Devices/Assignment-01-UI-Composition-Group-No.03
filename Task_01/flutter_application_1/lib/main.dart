@@ -46,7 +46,18 @@ class MyAppState extends ChangeNotifier {
 
 
 
-class MyHomePage extends StatelessWidget {
+class MyHomePage extends StatefulWidget {
+
+  @override
+  State<MyHomePage> createState() => _MyHomePageState();
+}
+
+// ...
+
+class _MyHomePageState extends State<MyHomePage> {
+
+  var selectedIndex = 0;    
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -65,9 +76,14 @@ class MyHomePage extends StatelessWidget {
                   label: Text('Favorites'),
                 ),
               ],
-              selectedIndex: 0,
+              selectedIndex: selectedIndex,    // ← Change to this.
               onDestinationSelected: (value) {
-                print('selected: $value');
+
+                // ↓ Replace print with this.
+                setState(() {
+                  selectedIndex = value;
+                });
+
               },
             ),
           ),
@@ -83,13 +99,15 @@ class MyHomePage extends StatelessWidget {
   }
 }
 
+// ...
+
 
 class GeneratorPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     var appState = context.watch<MyAppState>();
     var pair = appState.current;
-    
+
     IconData icon;
     if (appState.favorites.contains(pair)) {
       icon = Icons.favorite;
