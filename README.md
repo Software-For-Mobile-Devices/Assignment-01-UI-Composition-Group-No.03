@@ -6,6 +6,8 @@ Task 01:
 
 Task 02:
 
+![screenshot_1_part_2 png](https://github.com/user-attachments/assets/ea3a418f-77fd-44fc-8118-b22ea2c203df)
+
 
 
 Task 03:
